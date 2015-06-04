@@ -56,7 +56,7 @@ for i = 1:m
 end
 
 J=-1/m*sum(sum(yrecode.*log(a3)+(1-yrecode).*log(1-a3)));
-J=J+lambda/(2*m)*regular;
+J=J+lambda/2*m*regular;
 %
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
@@ -74,16 +74,14 @@ J=J+lambda/(2*m)*regular;
 %               first time.
 %
 delta3=a3-yrecode;
-delta2=(delta3*Theta2);
+delta2=(delta3*Theata2);
 
 delta2=delta2(:,2:end);
 delta2=delta2.*(sigmoidGradient(z2));
 
-Delta1=delta2'*X;
-Delta2=delta3'*[ones(m,1) a2];
+Delta1=delta2*Theta1;
+Delta2=delta3*t
 
-Theta1_grad=1/m*Delta1+lambda/m*[zeros(hidden_layer_size,1) Theta1(:,2:end)];
-Theta2_grad=1/m*Delta2+lambda/m*[zeros(num_labels,1) Theta2(:,2:end)];
 
     
 
@@ -94,6 +92,19 @@ Theta2_grad=1/m*Delta2+lambda/m*[zeros(num_labels,1) Theta2(:,2:end)];
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 %
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
